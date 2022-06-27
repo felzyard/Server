@@ -1,0 +1,277 @@
+:root{
+    --parFont:'Apple Chancery', cursive;
+    --nav_height:8vh;
+    --fontColor:#474544;
+    --darkPink:#9d8189;
+    --brightPink: #f4acb7;
+    --extraBrightPink: #ffe5d9;
+    --brightGreen: #d8e2dc;
+}
+* {
+    box-sizing: border-box;
+    }
+
+body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 60% auto;
+    grid-template-areas: 'header nav'
+                         'detailsDiv picDiv';
+  }
+
+
+/*phone display*/
+@media only screen and (max-width: 768px){
+    body{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas: 'header'
+        'picDiv'
+        'detailsDiv'
+        'nav';
+
+    }
+    #detailsDiv {
+      background-color: white;
+      grid-area:detailsDiv;
+      overflow-y:scroll;
+      grid-template-areas: 'theTitle theTitle ' 'theTitle Summary' 'Summary Summary';
+      /* align-items: center;*/
+    }
+    #mainPic{
+        height: 50vh;
+        width: 70vw;
+        margin-left: 15vw;
+
+    }
+    main {
+        overflow-y: scroll;
+    }
+    #theTitle{
+        width: 100%;
+        margin: 10vw;
+        margin-top: 3vh;
+        margin-left: 0vw;
+        font-size: 8vh;
+        font-family: var( --parFont);
+      }
+      nav{
+        z-index: 1;
+        margin-top: 0px;
+      }
+      #Summary{
+        width: 100vw;
+        height: 30vh;
+        border:solid 5px;
+        border-color: var(--brightGreen);
+        /* margin: 15vw; */
+        font-family: var( --parFont);
+
+
+
+
+      }
+      #animationDiv{
+          display: none;
+      }
+      #productDiv{
+        display: none;
+      }
+}
+/* end of quary */
+
+
+  header{
+    height: var(--nav_height);
+    background-color: var(--darkPink) ;
+    grid-area:header;
+  }
+  #embroideryIcon{
+      color: var(--brightPink);
+  }
+  nav{
+      height: var(--nav_height);
+      background-color:var(--darkPink);
+      grid-area:nav;
+
+  }
+
+  #navtool{
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    justify-content: space-around;
+  }
+   nav li{
+       color: var(--fontColor);
+       display: inline;
+       padding-top: 0px;
+       margin-top: 0px;
+       height: var(--nav_height);
+   }
+   nav li:hover{
+    background-color: var(--brightPink);
+   }
+
+   nav li a:hover{
+    background-color: var(--brightPink);
+   }
+
+  /* the aside container in contactUs */
+  #picDiv{
+      grid-area:picDiv ;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 40% auto;
+      grid-template-areas: 'animationDiv' 'productDiv';
+
+  }
+  #productDiv{
+    grid-template-areas: 'productDiv';
+  }
+#productShow{
+    height: 45vh;
+
+}
+#animationDiv{
+    font-family: var(--parFont);
+    color: var(--fontColor);
+    grid-area: animationDiv;
+
+}
+#sendInput{
+    background-color: var(--extraBrightPink);
+    border:  2px solid var(--brightGreen);
+    font-family: var(--parFont);
+    color: var(--fontColor);
+}
+/* end aside container in contactUs */
+
+/* the main container in the 2 pages */
+  #detailsDiv {
+    background-color: white;
+    grid-area:detailsDiv;
+    overflow:hidden;
+    display: grid;
+    grid-template-areas: 'triangleDiv theTitle' 'triangleDiv Summary';
+    align-items: center;
+
+  }
+/* define the triangle in home page */
+   .box {
+    width: 0;
+    height: 0;
+    border-top: 40vh solid transparent;
+    border-bottom: 40vh solid transparent;
+    border-left: 40vh solid var(--darkPink);
+
+  }
+
+
+
+  #theTitle{
+    grid-area: theTitle;
+    align-self:flex-start;
+    position: absolute;
+    z-index: 1;
+    margin: 15vw;
+    margin-top: 5vh;
+    margin-left: 5vw;
+    font-size: 15vh;
+  }
+
+  #Summary{
+    grid-area:Summary;
+    background-color:var(--extraBrightPink);
+    position: absolute;
+    z-index: 1;
+    width: 35vw;
+    height: 35vh;
+    border:solid 5px;
+    border-color: var(--brightGreen);
+    align-self:center ;
+    margin: 20vw;
+    text-align: left;
+    overflow-y: scroll;
+    margin-bottom: 10vh;
+
+  }
+/* contactUs page */
+  #contactForm{
+    padding: 5vh 5vw 5vh 5vw;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--extraBrightPink);
+    border: 5px solid var(--brightGreen);
+    border-radius: 10px;
+  }
+  /* title in contactUs page */
+  h2 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 7px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+
+
+ /* font in all page */
+  .fontDesign{
+    color: var(--fontColor);
+    font-family: var(--parFont);
+  }
+  /* font of the lable in contactUs page */
+  .inputDesign{
+    color: var(--fontColor);
+    font-family: var(--parFont);
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+  }
+
+
+/* animation div */
+  #animText {
+      animation-delay: 10s;
+    animation-duration: 3s;
+    animation-name: slidein;
+    width: 30vw;
+  }
+
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+
+    }
+
+    to {
+      margin-left: 0%;
+
+    }
+  }
+#header_base{
+    display:flex;
+}
+
+
+#welcome{
+    margin-top: 0vh;
+    margin-left: 15vw;
+}
+/*design the assignment3_1*/
+/*
+#main_assignment{
+    display: grid;
+    grid-template-areas: 'triangleDiv theTitle1'
+                         'triangleDiv Summary1';
+}
+#theTitle1{
+z-index:1;
+width: 500px;
+}
+#Summary1{
+z-index:1;
+width: 500px;
+margin-top: 10vh;
+}*/

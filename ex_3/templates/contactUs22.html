@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <aside  id="picDiv">
+        <!-- the animation -->
+        <div class="content" id="animationDiv">
+            <h3 class="fontDesign" id="animText">Choose Your Embroidery</h3>
+        </div>
+        <!-- the product picture -->
+        <div id="productDiv">
+            <img src="{{url_for('static', filename='images/catEmbroidery.jpg')}}" alt="" id="productShow">
+        </div>
+    </aside>
+
+    <main id="detailsDiv">
+
+        <!--5 input types :text,email,tel, checkbox and select tag-->
+        <form action="" id="contactForm">
+                <!--  &bull symbolize point-->
+            <h2 class="fontDesign">&bull; Keep in Touch &bull;</h2>
+            <div class="inputDesign" >
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" autocomplete="on" required><br>
+            </div>
+
+            <div class="inputDesign" >
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="on" required><br>
+            </div>
+
+            <div class="inputDesign" >
+                <label for="telephone">Phone Number</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="on" required><br>
+            </div>
+
+            <div class="inputDesign" style="display: flex;">
+                <label for="listby">Choose Embroidery</label><br>
+                <!-- function that change the image depend on the option -->
+                <select name="listby" id="listby" name="listby" onchange="show_product()">
+                    <option value="cat" rel="{{url_for('static', filename='images/catEmbroidery.jpg')}}">Cat</option>
+                    <option value="marbled" rel="{{url_for('static', filename='images/marbled Embroidery.jfif')}}">Marbled</option>
+                    <option value="hands" rel="{{url_for('static', filename='images/handsEmbroidery.jpg')}}">Hands</option>
+                    <option value="hedgehog" rel="{{url_for('static', filename='images/hedgehog.jpg')}}">Hedgehog</option>
+                </select>
+            </div>
+
+            <div class="inputDesign" style="display: flex;margin-top: 5vh;">
+                <input type="checkbox" id="agree" name="agree">
+                <label for="agree" style="background: honeydew;">I Accept it may be delay with my shipping that will
+                     make my shipment arrive up to two weeks </label>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 3vh;">
+                <input type="submit" value="Send" id="sendInput" style="background: honeydew;;">
+            </div>
+        </form>
+    </main>
+{% endblock %}
+

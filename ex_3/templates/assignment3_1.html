@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<aside>
+
+  {% include "designTriangle.html" %}
+
+</aside>
+<main id="main_assignment">
+        <div id="theTitle1">
+        {{super()}}
+        <h1>Hello {{user_name|capitalize}}</h1>
+        <h3>{{introduction|safe}}</h3>
+    </div>
+    <div id="Summary1">
+    <h3>My favorite Singers and bends:</h3>
+    <ol>
+        {% for singer in singers %}
+
+        {% if singer=='Ed Sheeran' %}
+            <il>{{singer}}- going to his concert!!!</il> </br>
+        {% elif singer=='Imagine Dragons' %}
+             <il>{{singer}}- I wish to go to their concert</il></br>
+        {%else%}
+            <il>{{singer}}</il></br>
+        {% endif %}
+        {% endfor %}
+    </ol>
+    </div>
+
+</main>
+{% endblock %}
+

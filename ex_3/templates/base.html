@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/myStyle2.css') }}">
+    <script src="../static/js/embroidery.js"></script>
+
+</head>
+<body>
+    <!-- nav & header are the same in both pages -->
+    <header id="header_base">
+        <!--Using Emphasis element - An element we did not learn  -->
+        <span id="embroideryIcon"><i class="fa fa-etsy" aria-hidden="true"></i>mbr<i class="fa fa-ravelry" aria-hidden="true"></i>idery<em>4U</em></span>
+
+        {% if email_session%}
+            <h3 id="welcome">welcome {{first_nameR}}</h3>
+        {% endif %}
+    </header>
+    <nav>
+        {% include "navBar.html" %}
+    </nav>
+    {% block content %}
+    <h2>Have a nice day! </h2>
+    {% endblock content %}
+
+
+
+</body>
+
+</html>

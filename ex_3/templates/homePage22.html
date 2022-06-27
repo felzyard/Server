@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <aside  id="picDiv">
+        <img id="mainPic" src="{{url_for('static', filename='images/manyEmbroidery.jpg')}}">
+    </aside>
+    <main id="detailsDiv">
+    {% include "designTriangle.html" %}
+    <h1 class="fontDesign" id="theTitle" >embroidery store</h1>
+        <!-- function that change the background color on click -->
+        <p class="fontDesign" id="Summary" onclick="createContactButton()">Our home is our place. The place where we spend a large part of our day.
+             Therefore we would like to invest in it and decorate it.
+             One way to decorate, are of course' hanging pictures.
+             We give you another alternative of pictures on the wall - embroidery.
+             At this site you will be exposed to many beautiful handmade embroidery pictures.
+             Our employees have put a lot of thought into giving you the best product.
+             All you have left is to choose. </p>
+    </main>
+{% endblock %}

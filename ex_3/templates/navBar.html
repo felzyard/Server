@@ -1,0 +1,9 @@
+            <ul id="navtool">
+                <li><a href="/home" id="navHome" >Home<i class="fa fa-home"></i></a></li>
+                <li><a href="/contact" id="navContact" >ContactUs<i class="fa fa-envelope"></i></a></li>
+                 <li><a href="/assignment3_1" id="assignment3_1" >assignment3_1<i class="fa fa-home"></i></a></li>
+                <li><a href="/assignment3_2" id="assignment3_2" >assignment3_2<i class="fa fa-home"></i></a></li>
+                {% if email_session%}
+                    <li><a href="/log_out" id="log_out" >log out<i class="fa fa-home"></i></a></li>
+                {%endif%}
+            </ul>

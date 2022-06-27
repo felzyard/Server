@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+    <h3>Search Form:</h3>
+
+    <form action="/assignment3_2" name="Search_form">
+        <input type="text" name="first_name" autocomplete="on"  placeholder="first name">
+        <input type="text" name="last_name" autocomplete="on"  placeholder="last name">
+        <input type="email" name="email" autocomplete="on"  placeholder="email">
+        <input type="submit" value="Send" name="send_search" >
+    </form>
+    </div>
+    <div>
+
+        {% if email_session%}
+            <h3>welcome</h3>
+        {% else%}
+            <h3>Registration Form:</h3>
+        <form action="/assignment3_2" name="registration_form" method="post">
+            <input type="email" name="email" autocomplete="on"  placeholder="email">
+            <input type="password" name="password"   placeholder="password">
+            <input type="submit" value="submit" name="send_registration" >
+        </form>
+        {% endif %}
+
+        {% if incorect_mass %}
+
+            <h3> {{incorect_mass}} </h3>
+        {% endif %}
+
+        {% if wrong_email %}
+            <h3>{{ wrong_email }}</h3>
+        {% endif %}
+    </div>
+
+
+        {% if  first_name%}
+        firstName: {{first_name}}, lastName:{{last_name}}, email:{{email}}
+        {% elif users %}
+        <ol>
+            {% for k, v in users.items()%}
+                <il>firstName: {{v["first_name"]}}, lastName:{{v["last_name"]}}, email:{{v["email"]}} </il> <br><br>
+            {% endfor %}
+        </ol>
+        {% elif message%}
+        <h3>{{message}}</h3>
+        {%endif%}
+{% endblock %}
