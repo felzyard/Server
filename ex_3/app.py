@@ -2,12 +2,16 @@ from flask import Flask, url_for, render_template
 from werkzeug.utils import redirect
 from datetime import timedelta
 from flask import request, session, jsonify
+import mysql.connector
 
 app=Flask(__name__)
 app.secret_key = '123'
 app.config['SESSION_PERMANENT'] = True
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=20)
 
+## assignment_4
+from pages.assignment_4.assignment_4 import assignment_4
+app.register_blueprint(assignment_4)
 
 @app.route('/')
 def start():

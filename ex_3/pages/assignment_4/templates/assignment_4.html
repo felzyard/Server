@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% set page_head_title = 'assignment_4' %}
+{% block content %}
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/assignment_4.css') }}">
+<!--------------show massage------------------>
+<div>
+{% if massage%}
+    <h3>massage</h3>
+{% endif %}
+</div>
+<!--------------Insertion form------------------>
+<div>
+<div className="container">
+    <h2>Insertion form:</h2>
+    <form action="/insert_user" method="post">
+        <input type="text" name="first_name" placeholder="first_name">
+        <input type="text" name="last_name" placeholder="last_name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="password">
+        <input type="submit">
+
+    </form>
+</div>
+
+<!--------------update form------------------>
+<div className="container">
+    <h2>update form:</h2>
+    <form action="/update_user" method="post">
+        <h3>Enter the email user you want to update</h3>
+        <input type="email" name="email" placeholder="Email">
+        <h3>Enter all the detail (even the details you dont want to change)</h3>
+        <input type="text" name="first_name" placeholder="first_name">
+        <input type="text" name="last_name" placeholder="last_name">
+        <input type="password" name="password" placeholder="password">
+        <input type="submit">
+
+    </form>
+</div>
+
+<!--------------delete form------------------>
+<div className="container">
+    <h2>Delete form:</h2>
+    <form action="/delete_user" method="post">
+        <h3>Enter the email user you want to delete</h3>
+        <input type="email" name="email" placeholder="Email">
+        <input type="submit">
+
+    </form>
+</div>
+</div>
+<!--------------list of users------------------>
+
+    {% for user in users %}
+        <div class="container">
+{#            {{ user }}#}
+            <h3>{{ user.first_name }}</h3>
+            <h3>{{ user.last_name }}</h3>
+            <h4>Email:{{ user.email }}</h4>
+            <h4>id: {{ user.id }}</h4>
+
+
+        </div>
+    {% endfor %}
+
+{% endblock %}

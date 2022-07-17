@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="outerSourceContainer">
+    <h2>outsource form:</h2>
+
+    <form action="/assignment4/outer_source" method="post">
+        <h1>From server</h1>
+        <label for="user_id">id</label><br>
+        <input type="number" id="user_id" name="user_id" required>
+        <br>
+        <input type="submit" value="Search">
+    </form>
+
+    <form>
+        <h1>From frontend</h1>
+        <label for="user_id_frontend">id</label><br>
+        <input type="number" id="user_id_frontend" name="user_id_frontend" required>
+        <br>
+        <input type="button" value="Search" onclick="fetch_user_from_frontend()">
+    </form>
+</div>
+
+        {% if json_dict %}
+            <div>
+                <h1>id: {{ json_dict['data']['id'] }}</h1>
+                <h1>first name: {{ json_dict['data']['first_name']|capitalize}}</h1>
+                <h1>last name: {{ json_dict['data']['last_name']|capitalize}}</h1>
+                <h1>email: {{ json_dict['data']['email'] }}</h1>
+                <br>
+                <img src="{{json_dict['data']['avatar']}}">
+            </div>
+        {% endif %}
+
+{% endblock %}
